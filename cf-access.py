@@ -67,3 +67,6 @@ def main():
         zone_name = x.split(' ')[1].strip('\n')
 	logs = get_logs(zone,times[0],times[1])
         save_to_file(logs, zone_name, timestamp)
+
+if __name__=="__main__":
+	main()

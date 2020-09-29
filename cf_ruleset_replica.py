@@ -36,7 +36,7 @@ def replicate_groups(zone,ruleset):
     groups = cf.zones.firewall.waf.packages.groups.get(source, ruleset)
     for x in groups["result"]:
         print x["id"], x["mode"]
-        print "Zestaw regul:", x["name"],"status", x["mode"], "dla zony: ", zone 
+        print "Rule set:", x["name"],"status", x["mode"], "for zone: ", zone 
         os.system('curl -X PATCH "https://api.cloudflare.com/client/v4/zones/%s/firewall/waf/packages/%s/groups/%s" -H "X-Auth-Email: %s" -H "X-Auth-Key: %s" -H "Content-Type: application/json" --data \'{"mode":"%s"}\'' % (zone, ruleset, x["id"], email, priv_key, x["mode"]))
 
 
